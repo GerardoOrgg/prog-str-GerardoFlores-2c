@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Main {
     public static int RESULTADO = 0;
     public static int CONTADOR = 1;
-    public static void main(String[] args) {
+    public static void main(String[] a) {
         Scanner sc=new Scanner(System.in);
         int Entero = pedirEntero(sc, "Dame un numero del 1 al 10");
         int Suma = SumarHastaN(Entero);
