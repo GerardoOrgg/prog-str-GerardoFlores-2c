@@ -1,18 +1,40 @@
 import java.util.Scanner;
 
 public class ActividadIfElseTarifa {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int Edad = PedirEdad(sc, "Ingresa tu edad");
-        boolean  = esEstudiante(sc, "Eres estudiante?");
-    }
-    public static int PedirEdad(Scanner sc, String mensaje){
-        System.out.println(mensaje);
-        return sc.nextInt();
-    }
+        System.out.print("Ingresa tu edad: ");
+        int edad = sc.nextInt();
+        if (edad < 0 || edad > 120) {
+            System.out.println("Edad inválida");
+            return;
+        }
+        System.out.print("¿Eres estudiante? (true/false): ");
+        boolean esEstudiante = sc.nextBoolean();
+        int tarifa;
+        if (edad < 12) {
+            tarifa = 50;
+        } else if (edad >= 12 && edad <= 17) {
+            if (esEstudiante) {
+                tarifa = 60;
+            } else {
+                tarifa = 80;
+            }
+        } else {
+            if (esEstudiante) {
+                tarifa = 90;
+            } else {
+                tarifa = 120;
+            }
+        }
 
-    public static boolean esEstudiante (Scanner sc, String mensaje){
-        System.out.println(mensaje);
-        return sc.nextBoolean();
+        System.out.println("Edad : " + edad);
+        if(esEstudiante){
+            System.out.println("Es estudiante");
+        } else {
+            System.out.println("No es estudiante");
+        }
+
+        System.out.println("Tarifa final: $" + tarifa);
     }
 }
