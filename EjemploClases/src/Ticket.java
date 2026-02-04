@@ -1,12 +1,9 @@
 public class Ticket {
 
     public Ticket() {
-
     }
-
     private final double DESCUENTO = 0.10;
     private final double PRECIO = 10;
-
     public double subtotal;
     public double descuentoCalculado;
     public double total;
