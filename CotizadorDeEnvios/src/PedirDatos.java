@@ -8,7 +8,8 @@ public class PedirDatos {
             System.out.println(msg);
             if(sc.hasNextDouble()){
                 peso = sc.nextDouble();
-                if (peso > 0.1 && peso < 50.0){
+                System.out.println("peso"+peso);
+                if (peso >= min && peso <= max){
                     return peso;
                 }
                 System.out.println("El peso no es valido");
@@ -18,13 +19,13 @@ public class PedirDatos {
             }
         }
     }
-    public int leerIntEnRango  (String message, Scanner sc){
+    public int leerIntEnRango  (String msg, int min, int max, Scanner sc){
         int distancia;
         while(true){
-            System.out.println(message);
-            if(sc.hasNextDouble()){
+            System.out.println(msg);
+            if(sc.hasNextInt()){
                 distancia = sc.nextInt();
-                if (distancia > 0.1 && distancia < 50.0){
+                if (distancia > min && distancia < max){
                     return distancia;
                 }
                 System.out.println("La distancia no es valida");
@@ -34,35 +35,34 @@ public class PedirDatos {
             }
         }
     }
-    public int tipoServicio (String message, Scanner sc){
+
+
+
+    public int leerTipoServicio (String message, int estandar, int express, Scanner sc){
         int tipo;
         while(true){
             System.out.println(message);
             if(sc.hasNextInt()){
                 tipo = sc.nextInt();
-                if (tipo == 1){
+                if (tipo == 1 || tipo == 2){
                     return tipo;
                 }
-                System.out.println("El valor no es valido");
+                System.out.println("Selecciona 1 o 2");
             } else {
                 System.out.println("El valor  no es numerico");
                 sc.nextLine();
             }
         }
     }
-    public boolean esZonaRemota  (String message, Scanner sc){
+    public boolean leerBoolean  (String message, Scanner sc){
         boolean zona;
         while(true){
             System.out.println(message);
             if(sc.hasNextBoolean()){
-                zona = sc.hasNextBoolean();
-                if (zona){
-                    return zona;
-                }
-
-                System.out.println("El valor no es valido");
+                zona = sc.nextBoolean();
+                return zona;
             } else {
-                System.out.println("El valor  no es numerico");
+                System.out.println("El valor  no es boleano");
                 sc.nextLine();
             }
         }
