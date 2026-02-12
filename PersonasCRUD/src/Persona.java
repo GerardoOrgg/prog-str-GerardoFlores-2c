@@ -7,10 +7,10 @@ public class Persona {
 
     }
 
-    public Persona(int id, String name) {
+    public Persona(int id, String name, boolean isActive) {
         this.id = id;
         this.name = name;
-        this.isActive = true;
+        this.isActive = isActive;
     }
 
     public int getId() {
