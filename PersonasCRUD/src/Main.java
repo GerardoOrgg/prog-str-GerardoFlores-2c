@@ -49,11 +49,12 @@ public class Main {
                      }
                      break;
                  case 3:
-                     System.out.println("Ingrese el ID a dar de baja");
+                     System.out.print("Ingrese el ID a dar de baja: ");
                      buscarid = sc.nextInt();
                      for (int i = 0; i < contador; i++) {
                          if (personas[i].getId() == buscarid){
                              personas[i].setActive(false);
+                             System.out.println(" -- La baja ha sido exitosa --");
                          }
                      }
                      break;
@@ -73,14 +74,20 @@ public class Main {
                      System.out.println("---- Actualizar nombre por ID ----");
                      System.out.print("Ingresa el ID a actulizar: ");
                      buscarid = sc.nextInt();
+                     sc.nextLine();
                      for (int i = 0; i < contador; i++) {
-                         if (personas[i].isActive()) {
-                             if (personas[i].getId() == buscarid){
+
+                         if (personas[i].getId() == buscarid) {
+
+                             if (personas[i].isActive()) {
                                  name = pedirdatos.name("Ingresa el nuevo nombre: ", sc);
                                  personas[i].setName(name);
+                                 System.out.println("Nombre actualizado correctamente");
+                             } else {
+                                 System.out.println("La persona no esta activa");
                              }
-                         } else {
-                             System.out.println("La persona no esta activa");
+
+                             break;
                          }
                      }
                      break;
@@ -90,6 +97,6 @@ public class Main {
 
          }while(opc != 0);
 
-        System.out.println(personas[0]);
+        System.out.println("El menu ha terminado :)");
     }
 }

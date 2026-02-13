@@ -4,7 +4,6 @@ public class Persona {
     private boolean isActive;
 
     public Persona() {
-
     }
 
     public Persona(int id, String name, boolean isActive) {
@@ -36,10 +35,6 @@ public class Persona {
     public void setActive(boolean active) {
         isActive = active;
     }
-
-
-
-
 
     @Override
     public String toString() {
