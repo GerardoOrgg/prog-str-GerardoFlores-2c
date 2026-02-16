@@ -6,7 +6,7 @@ public class Main {
         int contador = 0;
         Scanner sc = new Scanner(System.in);
         PedirDatos pedirdatos = new PedirDatos();
-        Alumno[] alumnos = new Alumno[20];
+        Alumno[] alumnos = new Alumno[25];
         Alumno alumno = new Alumno();
 
         do {
@@ -128,6 +128,6 @@ public class Main {
 
         }while(opc != 0);
 
-        System.out.println("El menu ha terminado :)");
+        System.out.println("Menu de Alumnos terminado :)");
     }
 }
