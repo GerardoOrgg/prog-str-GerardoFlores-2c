@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class PedirDatos {
 
-    Alumno alumno = new Alumno();
-
     public int Id(String message, Scanner sc, Alumno[] alumno, int contador){
         int id;
         while(true){

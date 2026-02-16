@@ -106,15 +106,15 @@ public class Main {
                         if (alumnos[i].isActive()) {
                             suma += alumnos[i].getPromedio();
                             contadorpromedio++;
-                        }
-                        if (alumnos[i].getPromedio() > PromedioMayor){
-                            PromedioMayor = alumno.getPromedio();
-                        }
-                        if (alumnos[i].getPromedio() < PromedioMenor){
-                            PromedioMenor = alumno.getPromedio();
-                        }
-                        if(alumnos[i].getPromedio() >= 8){
-                            contadoralumnos++;
+                            if (alumnos[i].getPromedio() > PromedioMayor){
+                                PromedioMayor = alumnos[i].getPromedio();
+                            }
+                            if (alumnos[i].getPromedio() < PromedioMenor){
+                                PromedioMenor = alumnos[i].getPromedio();
+                            }
+                            if(alumnos[i].getPromedio() >= 8){
+                                contadoralumnos++;
+                            }
                         }
                     }
                     System.out.println("El promedio General De Alumnos es: "+suma/contadorpromedio);
