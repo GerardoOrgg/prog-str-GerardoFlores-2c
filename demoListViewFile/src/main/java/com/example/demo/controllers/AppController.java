@@ -25,6 +25,9 @@ public class AppController {
     @FXML
     private TextField txtemail;
 
+    @FXML
+    private TextField txtedad;
+
     private ObservableList<String> data = FXCollections.observableArrayList();
     PersonaService service = new PersonaService();
 
@@ -44,11 +47,13 @@ public class AppController {
         try {
             String name = txtname.getText();
             String email = txtemail.getText();
-            service.addPerson(name,email);
+            int edad = Integer.parseInt(txtedad.getText());
+            service.addPerson(name,email,edad);
             labelS.setText("Usuario Creado Correctamente");
             labelS.setStyle("-fx-text-fill: green");
             txtname.clear();
             txtemail.clear();
+            txtedad.clear();
             loadFromFile();
         } catch (IOException e) {
             labelS.setText("Error "+e.getMessage());
