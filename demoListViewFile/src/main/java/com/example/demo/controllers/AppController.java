@@ -66,8 +66,8 @@ public class AppController {
 
     private void loadFromFile(){
         try{
-           List<String> items = service.loadForListView();
-           data.setAll(items);
+            List<String> items = service.loadForListView();
+            data.setAll(items);
             labelS.setText("Datos cargados correctamente");
             labelS.setStyle("-fx-text-fill:green");
         } catch (IOException e) {
