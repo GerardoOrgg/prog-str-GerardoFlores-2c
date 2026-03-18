@@ -29,8 +29,7 @@ public class PersonaService {
         return result;
     }
 
-    public void delete(int index, String name, String email, String edad) throws IOException{
-        validate(name, email, Integer.parseInt(edad));
+    public void delete(int index) throws IOException{
         List<String> listaOriginal =repo.readAllLines();
         List<String> cleanLine = new ArrayList<>();
         for (String line : listaOriginal){

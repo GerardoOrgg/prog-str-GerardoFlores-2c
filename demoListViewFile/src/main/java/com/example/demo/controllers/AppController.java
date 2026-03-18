@@ -50,10 +50,7 @@ public class AppController {
     public void onDelete(){
         try {
             int index = listView.getSelectionModel().getSelectedIndex();
-            String name = txtname.getText();
-            String email = txtemail.getText();
-            String edad = txtedad.getText();
-            service.delete(index,name,email,edad);
+            service.delete(index);
             loadFromFile();
             txtname.clear();
             txtemail.clear();
