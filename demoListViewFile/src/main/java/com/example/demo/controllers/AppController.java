@@ -34,7 +34,56 @@ public class AppController {
     @FXML
     public void initialize(){
         listView.setItems(data);
+        listView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
+            if (newValue != null) {
+                String[] parts = newValue.split("-");
+                txtname.setText(parts[0]);
+                txtemail.setText(parts[1]);
+                txtedad.setText(parts[2]);
+            }
+        });
         loadFromFile();
+    }
+
+
+    @FXML
+    public void onDelete(){
+        try {
+            int index = listView.getSelectionModel().getSelectedIndex();
+            String name = txtname.getText();
+            String email = txtemail.getText();
+            String edad = txtedad.getText();
+            service.delete(index,name,email,edad);
+            loadFromFile();
+            txtname.clear();
+            txtemail.clear();
+            txtedad.clear();
+            labelS.setText("Se Elimino correctamente");
+        } catch (IllegalArgumentException e) {
+            labelS.setText("Hubo un error en el archivo"+e.getMessage());
+        } catch (Exception e){
+            labelS.setText("Hubo un error en los datos"+e.getMessage());
+        }
+    }
+
+    @FXML
+    public void onUpdate(){
+        try {
+            int index = listView.getSelectionModel().getSelectedIndex();
+            String name = txtname.getText();
+            String email = txtemail.getText();
+            String edad = txtedad.getText();
+            service.update(index,name,email,edad);
+            loadFromFile();
+            txtname.clear();
+            txtemail.clear();
+            txtedad.clear();
+            labelS.setText("Se actualizo correctamente");
+        } catch (IllegalArgumentException e) {
+            labelS.setText("Hubo un error en el archivo"+e.getMessage());
+        } catch (Exception e){
+            labelS.setText("Hubo un error en los datos"+e.getMessage());
+        }
     }
 
     @FXML
@@ -47,7 +96,7 @@ public class AppController {
         try {
             String name = txtname.getText();
             String email = txtemail.getText();
-            int edad = Integer.parseInt(txtedad.getText());
+            String edad = txtedad.getText();
             service.addPerson(name,email,edad);
             labelS.setText("Usuario Creado Correctamente");
             labelS.setStyle("-fx-text-fill: green");

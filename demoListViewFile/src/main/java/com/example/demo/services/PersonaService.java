@@ -29,8 +29,34 @@ public class PersonaService {
         return result;
     }
 
-    public void addPerson(String name, String email, int edad) throws IOException {
-        validate(name,email,edad);
+    public void delete(int index, String name, String email, String edad) throws IOException{
+        validate(name, email, Integer.parseInt(edad));
+        List<String> listaOriginal =repo.readAllLines();
+        List<String> cleanLine = new ArrayList<>();
+        for (String line : listaOriginal){
+            if(line != null && !line.isBlank()){
+                cleanLine.add(line); //Le pasamos la linea que esta buena
+            }
+        }
+        cleanLine.remove(index);
+        repo.saveFile(cleanLine);
+    }
+
+    public void update(int index, String name, String email, String edad) throws IOException {
+        validate(name, email, Integer.parseInt(edad));
+        List<String> listaOriginal =repo.readAllLines();
+        List<String> cleanLine = new ArrayList<>();
+        for (String line : listaOriginal){
+            if(line != null && !line.isBlank()){
+                cleanLine.add(line); //Le pasamos la linea que esta buena
+            }
+        }
+        cleanLine.set(index, name+","+ email+","+edad);
+        repo.saveFile(cleanLine);
+    }
+
+    public void addPerson(String name, String email, String edad) throws IOException {
+        validate(name,email,Integer.parseInt(edad));
         repo.addNewLine(name+","+email+","+edad);
     }
 
