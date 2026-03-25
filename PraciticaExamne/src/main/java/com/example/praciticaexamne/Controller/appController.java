@@ -45,11 +45,8 @@ public class appController {
                 "Padre", "Madre", "Hermano", "Hermana",
                 "Abuelo", "Abuela", "Tío", "Tía"
         };
-
         parentestos.getItems().addAll(parentescos);
-
         listaContactos.setItems(contactos);
-
     }
 
     public void actualizar(){
